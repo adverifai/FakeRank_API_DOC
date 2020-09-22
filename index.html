@@ -1,0 +1,702 @@
+<!doctype html>
+<html>
+  <head>
+    <title>FakeRank</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>FakeRank</h1>
+    <div class="app-desc">Given a content item, FakeRank returns the probability of that item to be false or misleading.It leverages knowledge from the Web with Deep Learning and Natural Language Processing to understand the meaning of a news story and verify that it is supported by facts.</div>
+    <div class="app-desc">More information: <a href="https://adverifaiapi.developer.azure-api.net/">https://adverifaiapi.developer.azure-api.net/</a></div>
+    <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/v5</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Fakerank">Fakerank</a></h4>
+  <ul>
+  <li><a href="#checkFailedFact"><code><span class="http-method">get</span> /failed_checks</code></a></li>
+  <li><a href="#checkFakerankScore"><code><span class="http-method">get</span> /check_fakerank_score</code></a></li>
+  <li><a href="#checkToxicScore"><code><span class="http-method">get</span> /toxic_score</code></a></li>
+  <li><a href="#classifyProblematicCategory"><code><span class="http-method">get</span> /classify_text</code></a></li>
+  <li><a href="#classifySensitiveCategory"><code><span class="http-method">get</span> /classify_sensitive</code></a></li>
+  <li><a href="#uploadUrls"><code><span class="http-method">post</span> /upload_urls</code></a></li>
+  <li><a href="#uploadUrls2"><code><span class="http-method">post</span> /upload_urls2</code></a></li>
+  </ul>
+
+  <h1><a name="Fakerank">Fakerank</a></h1>
+  <div class="method"><a name="checkFailedFact"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /failed_checks</code></pre></div>
+    <div class="method-summary">Classify the content of a webpage using NLP (<span class="nickname">checkFailedFact</span>)</div>
+    <div class="method-notes">Returns the identified content category and confidence score in the classification. Return if the content category was identified as problematic</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">url (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; URL of the account to check format: url</div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_1">inline_response_200_1</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "failed_checks" : [ "http://example.com/aeiou", "http://example.com/aeiou" ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#inline_response_200_1">inline_response_200_1</a>
+    <h4 class="field-label">400</h4>
+    unsuccessful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    url not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="checkFakerankScore"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /check_fakerank_score</code></pre></div>
+    <div class="method-summary">Get the FakeRank score based on the content of the story using AdVerif.ai’s NLP and Machine Learning (<span class="nickname">checkFakerankScore</span>)</div>
+    <div class="method-notes">The content model considers 10 different signals of Fake News variants including “Pseudo-science”, “Conspiracy”, “Extreme Bias”, “Divisive Language” and more</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">url (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; URL of the account to check format: url</div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_4">inline_response_200_4</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "fakerank_score" : 0,
+  "factual_accuracy" : "low"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#inline_response_200_4">inline_response_200_4</a>
+    <h4 class="field-label">400</h4>
+    unsuccessful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    url not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="checkToxicScore"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /toxic_score</code></pre></div>
+    <div class="method-summary">Check if a webpage contains hate speech, toxic language, profanity and topics and texts aimed to incite hatred or violence (<span class="nickname">checkToxicScore</span>)</div>
+    <div class="method-notes">Returns the overall toxicity score and a list of text spans identified as toxic</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">url (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; URL of the account to check format: url</div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_2">inline_response_200_2</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "toxic_spans" : [ {
+    "toxictext" : "Mayor Pete Buttigieg: Generational Wealth Was Stolen from Black America",
+    "toxicscore" : 6
+  }, {
+    "toxictext" : "Mayor Pete Buttigieg: Generational Wealth Was Stolen from Black America",
+    "toxicscore" : 6
+  } ],
+  "summary_score" : 0
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#inline_response_200_2">inline_response_200_2</a>
+    <h4 class="field-label">400</h4>
+    unsuccessful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    url not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="classifyProblematicCategory"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /classify_text</code></pre></div>
+    <div class="method-summary">Classify the content of a webpage using NLP (<span class="nickname">classifyProblematicCategory</span>)</div>
+    <div class="method-notes">Returns the identified content category and confidence score in the classification. Return if the content category was identified as problematic</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">url (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; URL of the account to check format: url</div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "cat" : "Business & Industrial",
+  "conf" : 0,
+  "is_problematic" : "url"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#inline_response_200">inline_response_200</a>
+    <h4 class="field-label">400</h4>
+    unsuccessful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    url not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="classifySensitiveCategory"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /classify_sensitive</code></pre></div>
+    <div class="method-summary">Check if a story contains sensitive content such as crimes, accidents, shootings (<span class="nickname">classifySensitiveCategory</span>)</div>
+    <div class="method-notes">Returns further information about the problematic content or empty if it&#x27;s not suspect</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">url (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; URL of the account to check format: url</div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_3">inline_response_200_3</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "is_sensitive" : "sensitive subject",
+  "cat" : "Sensitive Subjects",
+  "conf" : 0
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#inline_response_200_3">inline_response_200_3</a>
+    <h4 class="field-label">400</h4>
+    unsuccessful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    url not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="uploadUrls"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /upload_urls</code></pre></div>
+    <div class="method-summary">Uploads a list of URLs to scan using the FakeRank API (<span class="nickname">uploadUrls</span>)</div>
+    <div class="method-notes">Runs through each of the URLs in the list, scan it and return the aggregated results in a file sent to the specified email</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>text/plain</code></li>
+      <li><code>binary file</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; list of urls via raw data or a file </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">email (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; email to send the results file to format: email</div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_5">inline_response_200_5</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Expected Running time" : "Approx. 0.5 minutes",
+  "Output sent to" : "or@adverifai.com",
+  "Received URLs" : 1000,
+  "status" : "pass"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#inline_response_200_5">inline_response_200_5</a>
+    <h4 class="field-label">400</h4>
+    unsuccessful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    file not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="uploadUrls2"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /upload_urls2</code></pre></div>
+    <div class="method-summary">Upload a list of URLs to scan using the FakeRank API and get back a token for each scan (<span class="nickname">uploadUrls2</span>)</div>
+    <div class="method-notes">Runs through each of the URLs in the list, , scan it and return the aggregated results in a HTTP response. It is optional to return the result to an email specified in advance Until the scan will successfully end you can check its status with the given token using run_token parameter. It is optional to add a tag to each URL in advance to keep track on the URLs that were sent</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>text/plain</code></li>
+      <li><code>binary file</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; list of urls via raw data or a file </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">email (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; email to send the results file to format: email</div>      <div class="param">run_token (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; token to be used to get results format: email</div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_6">inline_response_200_6</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Expected Running time" : "Approx. 0.5 minutes",
+  "run_token" : "f84e265d3af59404c4d98793115631c2",
+  "Received URLs" : 1000,
+  "status" : "pass"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#inline_response_200_6">inline_response_200_6</a>
+    <h4 class="field-label">400</h4>
+    unsuccessful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    file not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#inline_response_200"><code>inline_response_200</code></a></li>
+    <li><a href="#inline_response_200_1"><code>inline_response_200_1</code></a></li>
+    <li><a href="#inline_response_200_2"><code>inline_response_200_2</code></a></li>
+    <li><a href="#inline_response_200_3"><code>inline_response_200_3</code></a></li>
+    <li><a href="#inline_response_200_4"><code>inline_response_200_4</code></a></li>
+    <li><a href="#inline_response_200_5"><code>inline_response_200_5</code></a></li>
+    <li><a href="#inline_response_200_6"><code>inline_response_200_6</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="inline_response_200"><code>inline_response_200</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Returns the identified content category and confidence score in the classification</div>
+    <div class="field-items">
+      <div class="param">cat (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> category </div>
+          <div class="param-desc"><span class="param-type">example: Business &amp; Industrial</span></div>
+<div class="param">conf (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> confidence persentage format: int32</div>
+<div class="param">is_problematic (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> problematic </div>
+          <div class="param-desc"><span class="param-type">example: url</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_1"><code>inline_response_200_1</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">failed_checks (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Returns a list of URLs to the fact checks of the false stories format: url</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_2"><code>inline_response_200_2</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">summary_score (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> summary score format: int32</div>
+<div class="param">toxic_spans (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span> Returns overall toxicity score and a list of text spans identified as toxic </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_3"><code>inline_response_200_3</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Returns the identified content category and confidence score in the classification</div>
+    <div class="field-items">
+      <div class="param">cat (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> category </div>
+          <div class="param-desc"><span class="param-type">example: Sensitive Subjects</span></div>
+<div class="param">conf (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> confidence persentage format: int32</div>
+<div class="param">is_sensitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> sensitive </div>
+          <div class="param-desc"><span class="param-type">example: sensitive subject</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_4"><code>inline_response_200_4</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Returns the predicted score and factual accuracy (closer to 1 means lower factual accuracy).</div>
+    <div class="field-items">
+      <div class="param">factual_accuracy (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> category </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">low</div><div class="param-enum">mixed</div><div class="param-enum">high</div>
+<div class="param">fakerank_score (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> fakerank score format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_5"><code>inline_response_200_5</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Returns the predicted score and factual accuracy (closer to 1 means lower factual accuracy).</div>
+    <div class="field-items">
+      <div class="param">Expected Running time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Expected Running time </div>
+          <div class="param-desc"><span class="param-type">example: Approx. 0.5 minutes</span></div>
+<div class="param">Output sent to (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> email to send results file format: email</div>
+          <div class="param-desc"><span class="param-type">example: or@adverifai.com</span></div>
+<div class="param">Received URLs (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> number of urls in input file format: int32</div>
+          <div class="param-desc"><span class="param-type">example: 1000</span></div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> input file processing status </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">pass</div><div class="param-enum">fail</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_6"><code>inline_response_200_6</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Returns the predicted score and factual accuracy (closer to 1 means lower factual accuracy).</div>
+    <div class="field-items">
+      <div class="param">Expected Running time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Expected Running time </div>
+          <div class="param-desc"><span class="param-type">example: Approx. 0.5 minutes</span></div>
+<div class="param">Received URLs (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> number of urls in input file format: int32</div>
+          <div class="param-desc"><span class="param-type">example: 1000</span></div>
+<div class="param">run_token (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> token to be used to get results </div>
+          <div class="param-desc"><span class="param-type">example: f84e265d3af59404c4d98793115631c2</span></div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> input file processing status </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">pass</div><div class="param-enum">fail</div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
